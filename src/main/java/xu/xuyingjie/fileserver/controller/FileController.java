@@ -35,7 +35,7 @@ public class FileController implements ServletContextAware{
 	 */
 	@RequestMapping(value="file/upload",method=RequestMethod.POST)
 	@ResponseBody
-	public JsonResult<List<String>> upload(
+	public JsonResult<String> upload(
 			@RequestParam(value="fileName") String fileName,
 			@RequestParam(value="file") MultipartFile file,
 			@RequestParam(value="chunk") int chunk,

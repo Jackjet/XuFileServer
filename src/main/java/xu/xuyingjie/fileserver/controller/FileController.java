@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,7 @@ import xu.xuyingjie.fileserver.utils.MyLogUtils;
  * @author 许映杰
  *
  */
+@Controller
 public class FileController implements ServletContextAware{
 	private ServletContext servletContext;	//用于获取项目路径，来创建储存文件路径
 	@Resource
@@ -31,15 +33,16 @@ public class FileController implements ServletContextAware{
 	 * @param chunks	//分片文件的总片数
 	 * @return
 	 */
-	@RequestMapping(value="/file/upload",method=RequestMethod.POST)
+	@RequestMapping(value="file/upload",method=RequestMethod.POST)
 	@ResponseBody
 	public JsonResult<List<String>> upload(
+			@RequestParam(value="fileName") String fileName,
 			@RequestParam(value="file") MultipartFile file,
 			@RequestParam(value="chunk") int chunk,
 			@RequestParam(value="chunks") int chunks){
 		
 		MyLogUtils.getInstance().log("开始上传文件");
-		return fileService.upload(file,servletContext,chunk,chunks);
+		return fileService.upload(fileName,file,servletContext,chunk,chunks);
 	}
 	
 	@Override

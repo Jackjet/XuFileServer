@@ -14,6 +14,7 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 
 import xu.xuyingjie.fileserver.entity.JsonResult;
+import xu.xuyingjie.fileserver.entity.UploadStatus;
 import xu.xuyingjie.fileserver.service.FileService;
 import xu.xuyingjie.fileserver.utils.MyLogUtils;
 /**
@@ -35,7 +36,7 @@ public class FileController implements ServletContextAware{
 	 */
 	@RequestMapping(value="file/upload",method=RequestMethod.POST)
 	@ResponseBody
-	public JsonResult<String> upload(
+	public JsonResult<UploadStatus> upload(
 			@RequestParam(value="fileName") String fileName,
 			@RequestParam(value="file") MultipartFile file,
 			@RequestParam(value="chunk") int chunk,

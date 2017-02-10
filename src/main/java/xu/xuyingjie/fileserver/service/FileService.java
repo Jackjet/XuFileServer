@@ -63,6 +63,8 @@ public class FileService {
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+			jsonResult.setErrcode(JsonResult.SERVER_ERR);
+			jsonResult.setErrmsg(JsonResult.SERVER_ERR_MSG);
 			e.printStackTrace();
 		}
 		return jsonResult;

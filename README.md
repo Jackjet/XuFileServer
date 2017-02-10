@@ -1,6 +1,7 @@
 # XuFileServer
 文件，视频，图片服务器，上传后返回文件地址，支持大文件分片上传<br/>
 项目支持文本，二进制文件上传，支持大文件分片上传<br/>
+###如在项目使用中发现问题，或您有更好的建议，欢迎联系本人:xuyj89@qq.com
 
 ## 项目编译打包版本下载:
 [编译打包版下载](https://github.com/xu0ying0jie/XuFileServer/blob/master/dest/20170210/dest.zip)
